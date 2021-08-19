@@ -1,0 +1,21 @@
+<h1>Friend lists</h1>
+
+<%= link_to "Add friend", new_friend_path, class:"btn btn-sm btn-primary" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Friend name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <% if friend.user == current_user %>
+        <tr>
+          <td><%= friend.name %></td>
+          <td><%= link_to "Unfriend", friend_path(friend), method: :delete, data: {confirm:"Are you really sure?"}, class:"btn btn-sm  btn-outline-danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

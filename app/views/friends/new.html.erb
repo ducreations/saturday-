@@ -1,0 +1,17 @@
+<h1>Add a Friend</h1><br>
+
+<%= form_for @friend do |form| %>
+  <div class="text-field">
+    <%= form.label :name %><br>
+  <%= form.text_field :name, placeholder: "Bernabe Cambarihan", required: true, autofocus: true %>
+  </div><br>
+  <div class="number-field">
+    <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="actions">
+  <%= form.submit "Add Friend", class:"btn btn-sm btn-primary" %>
+  <%= link_to "Cancel", friends_path, class:"btn btn-sm btn-secondary" %>
+  </div><br>
+<% end %>
+
